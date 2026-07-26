@@ -32,7 +32,7 @@
         }
         h1 { color: #d63384; font-size: 24px; margin: 10px 0; }
         
-        /* Photo Frame Styling */
+        /* Photo Frame Styling - Clear High Quality */
         .photo-frame {
             width: 100%;
             max-height: 380px;
@@ -49,6 +49,7 @@
             height: auto;
             border-radius: 10px;
             display: block;
+            image-rendering: -webkit-optimize-contrast;
         }
 
         .shayari {
@@ -66,16 +67,22 @@
             background: #d63384;
             color: white;
             border: none;
-            padding: 12px 24px;
+            padding: 14px 28px;
             font-size: 16px;
-            border-radius: 25px;
-            margin-top: 5px;
+            font-weight: bold;
+            border-radius: 30px;
+            margin-top: 10px;
             cursor: pointer;
-            box-shadow: 0 4px 10px rgba(214, 51, 132, 0.3);
-            transition: transform 0.2s;
+            box-shadow: 0 4px 15px rgba(214, 51, 132, 0.4);
+            transition: transform 0.2s, background-color 0.2s;
         }
         .btn:active { transform: scale(0.95); }
-        audio { margin-top: 15px; width: 100%; border-radius: 10px; }
+        
+        audio {
+            margin-top: 15px;
+            width: 100%;
+            border-radius: 10px;
+        }
 
         /* Floating Balloons Animation */
         .balloon {
@@ -115,9 +122,9 @@
     <div class="card">
         <h1>🎉 Happy Birthday Aditi! 🎂</h1>
 
-        <!-- Photo Frame with Aditi's Photo -->
+        <!-- Clear High Quality Photo Frame -->
         <div class="photo-frame">
-            <img src="https://i.ibb.co/8LB2fXnj/image.jpg" alt="Aditi Photo Collage">
+            <img src="https://i.ibb.co/LdXvbhL/1000048135.jpg" alt="Aditi Photo Collage">
         </div>
         
         <p class="shayari">
@@ -127,23 +134,27 @@
             Har din aapke liye khushiyon se bhara ho!" ✨
         </p>
 
-        <button class="btn" onclick="celebrate()">Celebrate & Wish ✨</button>
+        <button class="btn" onclick="playAndCelebrate()">🎵 Play Music & Celebrate ✨</button>
 
-        <!-- Real Birthday Song Audio -->
-        <audio controls autoplay loop>
-            <source src="https://www.mboxdrive.com/Happy-Birthday-To-You-Song.mp3" type="audio/mpeg">
+        <!-- Birthday Song -->
+        <audio id="birthdaySong" loop preload="auto">
+            <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a7315b.mp3?filename=happy-birthday-155461.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
     </div>
 
     <script>
-        function celebrate() {
+        function playAndCelebrate() {
+            var audio = document.getElementById("birthdaySong");
+            audio.play().catch(function(error) {
+                console.log("Audio play error: " + error);
+            });
+
             confetti({
-                particleCount: 120,
-                spread: 80,
+                particleCount: 150,
+                spread: 90,
                 origin: { y: 0.6 }
             });
-            alert('🎂 Wishing you a very Happy Birthday Aditi!');
         }
 
         window.onload = function() {
@@ -158,4 +169,5 @@
 </body>
 </html>
 
-                        
+            
+    
