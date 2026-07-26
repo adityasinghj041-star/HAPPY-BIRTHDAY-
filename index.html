@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday!</title>
+    <title>Happy Birthday Aditi!</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <style>
         body {
             margin: 0;
@@ -18,7 +19,7 @@
             color: #333;
         }
         .card {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             padding: 30px 20px;
             border-radius: 20px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.15);
@@ -26,7 +27,13 @@
             width: 320px;
         }
         h1 { color: #d63384; font-size: 26px; margin-bottom: 10px; }
-        p { font-size: 16px; line-height: 1.6; color: #555; }
+        .shayari {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #444;
+            font-style: italic;
+            margin: 15px 0;
+        }
         .btn {
             background: #d63384;
             color: white;
@@ -34,19 +41,54 @@
             padding: 12px 24px;
             font-size: 16px;
             border-radius: 25px;
-            margin-top: 15px;
+            margin-top: 10px;
             cursor: pointer;
             box-shadow: 0 4px 10px rgba(214, 51, 132, 0.3);
+            transition: transform 0.2s;
         }
+        .btn:active { transform: scale(0.95); }
+        audio { margin-top: 15px; width: 100%; border-radius: 10px; }
     </style>
 </head>
 <body>
 
     <div class="card">
-        <h1>🎉 Happy Birthday! 🎉</h1>
-        <p>Aapki zindagi me khushiyan hazar aayein,<br>Har din naye rang aur muskaan layein!</p>
-        <button class="btn" onclick="alert('🎂 Wishing you a wonderful year ahead!')">Tap for Wish ✨</button>
+        <h1>🎉 Happy Birthday Aditi! 🎂</h1>
+        
+        <p class="shayari">
+            "Khwahishon ke samandar me sabhi moti aapke hon,<br>
+            Aapke dil me base har khwab poore hon!<br>
+            Phool khilte rahein aapki zindagi ki raahon mein,<br>
+            Har din aapke liye khushiyon se bhara ho!" ✨
+        </p>
+
+        <button class="btn" onclick="celebrate()">Celebrate & Wish ✨</button>
+
+        <audio controls autoplay loop style="margin-top:20px;">
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
     </div>
+
+    <script>
+        function celebrate() {
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+            alert('🎂 Wishing you a very Happy Birthday Aditi!');
+        }
+
+        window.onload = function() {
+            confetti({
+                particleCount: 80,
+                spread: 60,
+                origin: { y: 0.5 }
+            });
+        };
+    </script>
 
 </body>
 </html>
+
